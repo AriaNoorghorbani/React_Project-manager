@@ -2,15 +2,15 @@ import { useRef } from "react";
 import Input from "./Input";
 
 export default function NewProject({ onAdd }) {
-  const title = useRef();
-  const description = useRef();
-  const dueDate = useRef();
+  const enteredTitle = useRef();
+  const enteredDescription = useRef();
+  const enteredDueDate = useRef();
 
   function handleSave() {
     const newProject = {
-      enteredTitle: title.current.value,
-      enteredDescription: description.current.value,
-      enteredDueDate: dueDate.current.value,
+      title: enteredTitle.current.value,
+      description: enteredDescription.current.value,
+      dueDate: enteredDueDate.current.value,
     };
 
     onAdd(newProject);
@@ -34,9 +34,9 @@ export default function NewProject({ onAdd }) {
         </li>
       </menu>
       <div>
-        <Input label="Title" ref={title} type="text"></Input>
-        <Input label="Description" isTextarea ref={description}></Input>
-        <Input label="Due Date" ref={dueDate} type="date"></Input>
+        <Input label="Title" ref={enteredTitle} type="text"></Input>
+        <Input label="Description" isTextarea ref={enteredDescription}></Input>
+        <Input label="Due Date" ref={enteredDueDate} type="date"></Input>
       </div>
     </div>
   );
